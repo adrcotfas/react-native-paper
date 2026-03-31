@@ -80,7 +80,7 @@ exports[`renders list item with custom description 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -93,7 +93,7 @@ exports[`renders list item with custom description 1`] = `
                 "fontSize": 16,
               },
               {
-                "color": "rgba(28, 27, 31, 1)",
+                "color": "rgba(29, 27, 32, 1)",
               },
               undefined,
             ],
@@ -276,7 +276,7 @@ exports[`renders list item with custom description 1`] = `
                           "textAlign": "left",
                         },
                         {
-                          "color": "rgba(28, 27, 31, 1)",
+                          "color": "rgba(29, 27, 32, 1)",
                           "writingDirection": "ltr",
                         },
                         [
@@ -403,7 +403,7 @@ exports[`renders list item with custom title and description styles 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -416,7 +416,7 @@ exports[`renders list item with custom title and description styles 1`] = `
                 "fontSize": 16,
               },
               {
-                "color": "rgba(28, 27, 31, 1)",
+                "color": "rgba(29, 27, 32, 1)",
               },
               {
                 "fontSize": 20,
@@ -437,7 +437,7 @@ exports[`renders list item with custom title and description styles 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -549,7 +549,7 @@ exports[`renders list item with left and right items 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -562,7 +562,7 @@ exports[`renders list item with left and right items 1`] = `
                 "fontSize": 16,
               },
               {
-                "color": "rgba(28, 27, 31, 1)",
+                "color": "rgba(29, 27, 32, 1)",
               },
               undefined,
             ],
@@ -581,7 +581,7 @@ exports[`renders list item with left and right items 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -781,7 +781,7 @@ exports[`renders list item with left item 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -794,7 +794,7 @@ exports[`renders list item with left item 1`] = `
                 "fontSize": 16,
               },
               {
-                "color": "rgba(28, 27, 31, 1)",
+                "color": "rgba(29, 27, 32, 1)",
               },
               undefined,
             ],
@@ -888,7 +888,7 @@ exports[`renders list item with right item 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -901,7 +901,7 @@ exports[`renders list item with right item 1`] = `
                 "fontSize": 16,
               },
               {
-                "color": "rgba(28, 27, 31, 1)",
+                "color": "rgba(29, 27, 32, 1)",
               },
               undefined,
             ],
@@ -998,7 +998,7 @@ exports[`renders list item with title and description 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -1011,7 +1011,7 @@ exports[`renders list item with title and description 1`] = `
                 "fontSize": 16,
               },
               {
-                "color": "rgba(28, 27, 31, 1)",
+                "color": "rgba(29, 27, 32, 1)",
               },
               undefined,
             ],
@@ -1030,7 +1030,7 @@ exports[`renders list item with title and description 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -1137,7 +1137,7 @@ exports[`renders with a description with typeof number 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
@@ -1150,7 +1150,7 @@ exports[`renders with a description with typeof number 1`] = `
                 "fontSize": 16,
               },
               {
-                "color": "rgba(28, 27, 31, 1)",
+                "color": "rgba(29, 27, 32, 1)",
               },
               {
                 "fontSize": 20,
@@ -1171,7 +1171,7 @@ exports[`renders with a description with typeof number 1`] = `
               "textAlign": "left",
             },
             {
-              "color": "rgba(28, 27, 31, 1)",
+              "color": "rgba(29, 27, 32, 1)",
               "fontFamily": "System",
               "fontWeight": "400",
               "letterSpacing": 0,
