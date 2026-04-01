@@ -36,22 +36,18 @@ export type Props = $Omit<React.ComponentProps<typeof Surface>, 'mode'> & {
     label: string;
   };
   /**
-   * @supported Available in v5.x with theme version 3
    * Icon to display when `onIconPress` is defined. Default will be `close` icon.
    */
   icon?: IconSource;
   /**
-   * @supported Available in v5.x with theme version 3
    * Color of the ripple effect.
    */
   rippleColor?: ColorValue;
   /**
-   * @supported Available in v5.x with theme version 3
    * Function to execute on icon button press. The icon button appears only when this prop is specified.
    */
   onIconPress?: () => void;
   /**
-   * @supported Available in v5.x with theme version 3
    * Accessibility label for the icon button. This is read by the screen reader when the user taps the button.
    */
   iconAccessibilityLabel?: string;
@@ -68,7 +64,6 @@ export type Props = $Omit<React.ComponentProps<typeof Surface>, 'mode'> & {
    */
   children: React.ReactNode;
   /**
-   * @supported Available in v5.x with theme version 3
    * Changes Snackbar shadow and background on iOS and Android.
    */
   elevation?: 0 | 1 | 2 | 3 | 4 | 5 | Animated.Value;
@@ -243,7 +238,7 @@ const Snackbar = ({
     }
   }, [visible, handleOnVisible, handleOnHidden]);
 
-  const { colors, roundness, isV3 } = theme;
+  const { colors, roundness } = theme;
 
   if (hidden) {
     return null;
@@ -257,11 +252,11 @@ const Snackbar = ({
     ...actionProps
   } = action || {};
 
-  const buttonTextColor = isV3 ? colors.inversePrimary : colors.accent;
-  const textColor = isV3 ? colors.inverseOnSurface : colors?.surface;
-  const backgroundColor = isV3 ? colors.inverseSurface : colors?.onSurface;
+  const buttonTextColor = colors.inversePrimary;
+  const textColor = colors.inverseOnSurface;
+  const backgroundColor = colors.inverseSurface;
 
-  const isIconButton = isV3 && onIconPress;
+  const isIconButton = onIconPress;
 
   const marginLeft = action ? -12 : -16;
 
@@ -301,7 +296,6 @@ const Snackbar = ({
         accessibilityLiveRegion="polite"
         theme={theme}
         style={[
-          !isV3 && styles.elevation,
           styles.container,
           {
             backgroundColor,
@@ -322,7 +316,7 @@ const Snackbar = ({
         ]}
         testID={testID}
         container
-        {...(isV3 && { elevation })}
+        elevation={elevation}
         {...rest}
       >
         {renderChildrenWithWrapper()}
@@ -336,7 +330,7 @@ const Snackbar = ({
                 }}
                 style={[styles.button, actionStyle]}
                 textColor={buttonTextColor}
-                compact={!isV3}
+                compact={false}
                 mode="text"
                 theme={theme}
                 rippleColor={actionRippleColor}
@@ -422,9 +416,6 @@ const styles = StyleSheet.create({
   button: {
     marginRight: 8,
     marginLeft: 4,
-  },
-  elevation: {
-    elevation: 6,
   },
   icon: {
     width: 40,

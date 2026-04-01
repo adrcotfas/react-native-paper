@@ -46,8 +46,7 @@ const FlatTable = ({
   return (
     <>
       <Admonition type="info">
-        The table below outlines the theme colors, specifically for MD3{' '}
-        <i>(theme version 3)</i> at the moment.
+        The table below outlines the theme colors.
       </Admonition>
       <table>
         <thead>
@@ -97,8 +96,7 @@ const TabbedTable = ({
   return (
     <>
       <Admonition type="info">
-        The table below outlines the theme colors, specifically for MD3{' '}
-        <i>(theme version 3)</i> at the moment.
+        The table below outlines the theme colors.
       </Admonition>
       <Tabs>{tabTableContent}</Tabs>
     </>

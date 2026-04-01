@@ -130,14 +130,9 @@ exports[`renders menu with content styles 1`] = `
                       },
                       [
                         {
-                          "marginHorizontal": 16,
-                          "marginVertical": 9,
-                          "textAlign": "center",
-                        },
-                        false,
-                        {
                           "marginHorizontal": 24,
                           "marginVertical": 10,
+                          "textAlign": "center",
                         },
                         undefined,
                         false,
@@ -371,7 +366,6 @@ exports[`renders menu with content styles 1`] = `
                   pointerEvents="none"
                   style={
                     [
-                      false,
                       {
                         "justifyContent": "center",
                       },
@@ -408,7 +402,6 @@ exports[`renders menu with content styles 1`] = `
                             "lineHeight": 24,
                           },
                           [
-                            false,
                             {
                               "color": "rgba(28, 27, 31, 1)",
                               "fontFamily": "System",
@@ -494,7 +487,6 @@ exports[`renders menu with content styles 1`] = `
                   pointerEvents="none"
                   style={
                     [
-                      false,
                       {
                         "justifyContent": "center",
                       },
@@ -531,7 +523,6 @@ exports[`renders menu with content styles 1`] = `
                             "lineHeight": 24,
                           },
                           [
-                            false,
                             {
                               "color": "rgba(28, 27, 31, 1)",
                               "fontFamily": "System",
@@ -689,14 +680,9 @@ exports[`renders not visible menu 1`] = `
                     },
                     [
                       {
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
-                      },
-                      false,
-                      {
                         "marginHorizontal": 24,
                         "marginVertical": 10,
+                        "textAlign": "center",
                       },
                       undefined,
                       false,
@@ -855,14 +841,9 @@ exports[`renders visible menu 1`] = `
                       },
                       [
                         {
-                          "marginHorizontal": 16,
-                          "marginVertical": 9,
-                          "textAlign": "center",
-                        },
-                        false,
-                        {
                           "marginHorizontal": 24,
                           "marginVertical": 10,
+                          "textAlign": "center",
                         },
                         undefined,
                         false,
@@ -1092,7 +1073,6 @@ exports[`renders visible menu 1`] = `
                   pointerEvents="none"
                   style={
                     [
-                      false,
                       {
                         "justifyContent": "center",
                       },
@@ -1129,7 +1109,6 @@ exports[`renders visible menu 1`] = `
                             "lineHeight": 24,
                           },
                           [
-                            false,
                             {
                               "color": "rgba(28, 27, 31, 1)",
                               "fontFamily": "System",
@@ -1215,7 +1194,6 @@ exports[`renders visible menu 1`] = `
                   pointerEvents="none"
                   style={
                     [
-                      false,
                       {
                         "justifyContent": "center",
                       },
@@ -1252,7 +1230,6 @@ exports[`renders visible menu 1`] = `
                             "lineHeight": 24,
                           },
                           [
-                            false,
                             {
                               "color": "rgba(28, 27, 31, 1)",
                               "fontFamily": "System",

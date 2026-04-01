@@ -136,14 +136,14 @@ export default function Main() {
 
 ## Customization
 
-You can provide a custom theme to customize the colors, typescales etc. with the `Provider` component. Check the [Material Design 3 default theme](https://github.com/callstack/react-native-paper/blob/main/src/styles/themes/v3/LightTheme.tsx) to see what customization options are supported.
+You can provide a custom theme to customize the colors, typescales etc. with the `Provider` component. Check the [default theme](https://github.com/callstack/react-native-paper/blob/main/src/styles/themes/LightTheme.tsx) to see what customization options are supported.
 
 Example:
 
 ```js
 import * as React from 'react';
 import {
-  MD3LightTheme as DefaultTheme,
+  LightTheme as DefaultTheme,
   PaperProvider,
 } from 'react-native-paper';
 import App from './src/App';
@@ -166,6 +166,3 @@ export default function Main() {
 }
 ```
 
-:::note
-For MD2 check the following [Material Design 2 default theme](https://github.com/callstack/react-native-paper/blob/main/src/styles/themes/v2/LightTheme.tsx).
-:::

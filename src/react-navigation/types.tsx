@@ -61,7 +61,7 @@ export type MaterialBottomTabNavigationOptions = {
   title?: string;
 
   /**
-   * @deprecated In v5.x works only with theme version 2.
+   * @deprecated No longer used.
    * Color of the tab bar when this tab is active. Only used when `shifting` is `true`.
    */
   tabBarColor?: string;

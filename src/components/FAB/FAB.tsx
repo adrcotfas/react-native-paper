@@ -108,7 +108,6 @@ export type Props = $Omit<$RemoveChildren<typeof Surface>, 'mode'> & {
    */
   delayLongPress?: number;
   /**
-   * @supported Available in v5.x with theme version 3
    *
    * Size of the `FAB`.
    * - `small` - FAB with small height (40).
@@ -121,7 +120,6 @@ export type Props = $Omit<$RemoveChildren<typeof Surface>, 'mode'> & {
    */
   customSize?: number;
   /**
-   * @supported Available in v5.x with theme version 3
    *
    * Mode of the `FAB`. You can change the mode to adjust the the shadow:
    * - `flat` - button without a shadow.
@@ -129,7 +127,6 @@ export type Props = $Omit<$RemoveChildren<typeof Surface>, 'mode'> & {
    */
   mode?: FABMode;
   /**
-   * @supported Available in v5.x with theme version 3
    *
    * Color mappings variant for combinations of container and icon colors.
    */
@@ -210,11 +207,11 @@ const FAB = forwardRef<View, Props>(
     ref
   ) => {
     const theme = useInternalTheme(themeOverrides);
-    const uppercase = uppercaseProp ?? !theme.isV3;
+    const uppercase = uppercaseProp ?? false;
     const { current: visibility } = React.useRef<Animated.Value>(
       new Animated.Value(visible ? 1 : 0)
     );
-    const { isV3, animation } = theme;
+    const { animation } = theme;
     const { scale } = animation;
 
     React.useEffect(() => {
@@ -255,7 +252,7 @@ const FAB = forwardRef<View, Props>(
     const isFlatMode = mode === 'flat';
     const iconSize = isLargeSize ? 36 : 24;
     const loadingIndicatorSize = isLargeSize ? 24 : 18;
-    const font = isV3 ? theme.fonts.labelLarge : theme.fonts.medium;
+    const font = theme.fonts.labelLarge;
 
     const extendedStyle = getExtendedFabStyle({ customSize, theme });
     const textStyle = {
@@ -263,7 +260,7 @@ const FAB = forwardRef<View, Props>(
       ...font,
     };
 
-    const md3Elevation = isFlatMode || disabled ? 0 : 3;
+    const elevation = isFlatMode ? 0 : 3;
 
     const newAccessibilityState = { ...accessibilityState, disabled };
 
@@ -282,13 +279,11 @@ const FAB = forwardRef<View, Props>(
               },
             ],
           },
-          !isV3 && styles.elevated,
-          !isV3 && disabled && styles.disabled,
           style,
         ]}
         pointerEvents={visible ? 'auto' : 'none'}
         testID={`${testID}-container`}
-        {...(isV3 && { elevation: md3Elevation })}
+        elevation={elevation}
         container
       >
         <TouchableRipple

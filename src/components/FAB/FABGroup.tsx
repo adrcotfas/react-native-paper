@@ -126,7 +126,6 @@ export type Props = {
    */
   fabStyle?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
   /**
-   * @supported Available in v5.x with theme version 3
    *
    * Color mappings variant for combinations of container and icon colors.
    */
@@ -250,7 +249,6 @@ const FABGroup = ({
   >(null);
 
   const { scale } = theme.animation;
-  const { isV3 } = theme;
 
   React.useEffect(() => {
     if (open) {
@@ -262,7 +260,7 @@ const FABGroup = ({
           useNativeDriver: true,
         }),
         Animated.stagger(
-          isV3 ? 15 : 50 * scale,
+          15,
           animations.current
             .map((animation) =>
               Animated.timing(animation, {
@@ -294,7 +292,7 @@ const FABGroup = ({
         }
       });
     }
-  }, [open, actions, backdrop, scale, isV3]);
+  }, [open, actions, backdrop, scale]);
 
   const close = () => onStateChange({ open: false });
   const toggle = () => onStateChange({ open: !open });
@@ -326,14 +324,6 @@ const FABGroup = ({
     : backdrop;
 
   const opacities = animations.current;
-  const scales = opacities.map((opacity) =>
-    open
-      ? opacity.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0.5, 1],
-        })
-      : 1
-  );
 
   const translations = opacities.map((opacity) =>
     open
@@ -395,7 +385,7 @@ const FABGroup = ({
           {actions.map((it, i) => {
             const labelTextStyle = {
               color: it.labelTextColor ?? labelColor,
-              ...(isV3 ? theme.fonts.titleMedium : {}),
+              ...theme.fonts.titleMedium,
             };
             const marginHorizontal =
               typeof it.size === 'undefined' || it.size === 'small' ? 24 : 16;
@@ -430,7 +420,7 @@ const FABGroup = ({
                 {it.label && (
                   <View>
                     <Card
-                      mode={isV3 ? 'contained' : 'elevated'}
+                      mode="contained"
                       onPress={handleActionPress}
                       accessibilityHint={it.accessibilityHint}
                       importantForAccessibility="no-hide-descendants"
@@ -438,14 +428,9 @@ const FABGroup = ({
                       style={[
                         styles.containerStyle,
                         {
-                          transform: [
-                            isV3
-                              ? { translateY: labelTranslations[i] }
-                              : { scale: scales[i] },
-                          ],
+                          transform: [{ translateY: labelTranslations[i] }],
                           opacity: opacities[i],
                         },
-                        isV3 && styles.v3ContainerStyle,
                         it.containerStyle,
                       ]}
                     >
@@ -467,11 +452,10 @@ const FABGroup = ({
                   color={it.color}
                   style={[
                     {
-                      transform: [{ scale: scales[i] }],
+                      transform: [{ translateY: translations[i] }],
                       opacity: opacities[i],
                       backgroundColor: stackedFABBackgroundColor,
                     },
-                    isV3 && { transform: [{ translateY: translations[i] }] },
                     it.style,
                   ]}
                   accessibilityElementsHidden={true}
@@ -531,23 +515,20 @@ const styles = StyleSheet.create({
   backdrop: {
     ...StyleSheet.absoluteFillObject,
   },
+  // eslint-disable-next-line react-native/no-color-literals
   containerStyle: {
     borderRadius: 5,
     paddingHorizontal: 12,
     paddingVertical: 6,
     marginVertical: 8,
     marginHorizontal: 16,
-    elevation: 2,
+    elevation: 0,
+    backgroundColor: 'transparent',
   },
   item: {
     marginBottom: 16,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
-  },
-  // eslint-disable-next-line react-native/no-color-literals
-  v3ContainerStyle: {
-    backgroundColor: 'transparent',
-    elevation: 0,
   },
 });

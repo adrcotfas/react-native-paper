@@ -27,7 +27,7 @@ export type BaseRoute = {
   unfocusedIcon?: IconSource;
   badge?: string | number | boolean;
   /**
-   * @deprecated In v5.x works only with theme version 2.
+   * @deprecated No longer used.
    */
   color?: string;
   accessibilityLabel?: string;
@@ -58,7 +58,7 @@ export type Props<Route extends BaseRoute> = {
   /**
    * Whether the shifting style is used, the active tab icon shifts up to show the label and the inactive tabs won't have a label.
    *
-   * By default, this is `false` with theme version 3 and `true` when you have more than 3 tabs.
+   * By default, this is `false` unless you have more than 3 tabs.
    * Pass `shifting={false}` to explicitly disable this animation, or `shifting={true}` to always use this animation.
    * Note that you need at least 2 tabs be able to run this animation.
    */
@@ -83,7 +83,7 @@ export type Props<Route extends BaseRoute> = {
    * - `title`: title of the route to use as the tab label
    * - `focusedIcon`:  icon to use as the focused tab icon, can be a string, an image source or a react component @renamed Renamed from 'icon' to 'focusedIcon' in v5.x
    * - `unfocusedIcon`:  icon to use as the unfocused tab icon, can be a string, an image source or a react component @supported Available in v5.x with theme version 3
-   * - `color`: color to use as background color for shifting bottom navigation @deprecatedProperty In v5.x works only with theme version 2.
+   * - `color`: color to use as background color for shifting bottom navigation @deprecatedProperty No longer used.
    * - `badge`: badge to show on the tab icon, can be `true` to show a dot, `string` or `number` to show text.
    * - `accessibilityLabel`: accessibility label for the tab button
    * - `testID`: test id for the tab button
@@ -179,10 +179,6 @@ export type Props<Route extends BaseRoute> = {
    * Get badge for the tab, uses `route.badge` by default.
    */
   getBadge?: (props: { route: Route }) => boolean | number | string | undefined;
-  /**
-   * Get color for the tab, uses `route.color` by default.
-   */
-  getColor?: (props: { route: Route }) => string | undefined;
   /**
    * Get label text for the tab, uses `route.title` by default. Use `renderLabel` to replace label component.
    */
@@ -327,7 +323,6 @@ const BottomNavigation = <Route extends BaseRoute>({
   renderTouchable,
   getLabelText,
   getBadge,
-  getColor,
   getAccessibilityLabel,
   getTestID,
   activeColor,
@@ -353,9 +348,8 @@ const BottomNavigation = <Route extends BaseRoute>({
 }: Props<Route>) => {
   const theme = useInternalTheme(themeOverrides);
   const { scale } = theme.animation;
-  const compact = compactProp ?? !theme.isV3;
-  let shifting =
-    shiftingProp ?? (theme.isV3 ? false : navigationState.routes.length > 3);
+  const compact = compactProp ?? false;
+  let shifting = shiftingProp ?? false;
 
   if (shifting && navigationState.routes.length < 2) {
     shifting = false;
@@ -404,7 +398,7 @@ const BottomNavigation = <Route extends BaseRoute>({
         ...navigationState.routes.map((_, i) =>
           Animated.timing(tabsPositionAnims[i], {
             toValue: i === index ? 0 : i >= index ? 1 : -1,
-            duration: theme.isV3 || shifting ? 150 * scale : 0,
+            duration: 150 * scale,
             useNativeDriver: true,
             easing: sceneAnimationEasing,
           })
@@ -424,13 +418,11 @@ const BottomNavigation = <Route extends BaseRoute>({
       });
     },
     [
-      shifting,
       navigationState.routes,
       offsetsAnims,
       scale,
       tabsPositionAnims,
       sceneAnimationEasing,
-      theme,
     ]
   );
 
@@ -579,7 +571,6 @@ const BottomNavigation = <Route extends BaseRoute>({
         renderTouchable={renderTouchable}
         getLabelText={getLabelText}
         getBadge={getBadge}
-        getColor={getColor}
         getAccessibilityLabel={getAccessibilityLabel}
         getTestID={getTestID}
         activeColor={activeColor}

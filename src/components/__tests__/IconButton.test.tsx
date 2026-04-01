@@ -5,7 +5,7 @@ import { act, render } from '@testing-library/react-native';
 import color from 'color';
 
 import { getTheme } from '../../core/theming';
-import { pink500 } from '../../styles/themes/v2/colors';
+import { pink500 } from '../../styles/themes/baseColors';
 import IconButton from '../IconButton/IconButton';
 import { getIconButtonColor } from '../IconButton/utils';
 
@@ -90,7 +90,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return correct disabled color, for theme version 3', () => {
+  it('should return correct disabled color', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -101,7 +101,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode contained', () => {
+  it('should return theme icon color, mode contained', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -112,7 +112,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode contained, selected', () => {
+  it('should return theme icon color, mode contained, selected', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -124,7 +124,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode contained-tonal', () => {
+  it('should return theme icon color, mode contained-tonal', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -135,7 +135,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode contained-tonal, selected', () => {
+  it('should return theme icon color, mode contained-tonal, selected', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -147,7 +147,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode outlined', () => {
+  it('should return theme icon color, mode outlined', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -158,7 +158,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode outlined, selected', () => {
+  it('should return theme icon color, mode outlined, selected', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -170,7 +170,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3', () => {
+  it('should return theme icon color', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -180,7 +180,7 @@ describe('getIconButtonColor - icon color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, selected', () => {
+  it('should return theme icon color, selected', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -188,16 +188,6 @@ describe('getIconButtonColor - icon color', () => {
       })
     ).toMatchObject({
       iconColor: getTheme().colors.primary,
-    });
-  });
-
-  it('should return theme icon color, for theme version 2', () => {
-    expect(
-      getIconButtonColor({
-        theme: getTheme(false, false),
-      })
-    ).toMatchObject({
-      iconColor: getTheme(false, false).colors.text,
     });
   });
 });
@@ -215,7 +205,7 @@ describe('getIconButtonColor - background color', () => {
   });
 
   (['contained', 'contained-tonal'] as const).forEach((mode) =>
-    it(`should return correct disabled color, for theme version 3, ${mode} mode`, () => {
+    it(`should return correct disabled color, ${mode} mode`, () => {
       expect(
         getIconButtonColor({
           theme: getTheme(),
@@ -226,7 +216,7 @@ describe('getIconButtonColor - background color', () => {
     })
   );
 
-  it('should return theme icon color, for theme version 3, mode contained', () => {
+  it('should return theme icon color, mode contained', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -237,7 +227,7 @@ describe('getIconButtonColor - background color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode contained, selected', () => {
+  it('should return theme icon color, mode contained, selected', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -249,7 +239,7 @@ describe('getIconButtonColor - background color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode contained-tonal', () => {
+  it('should return theme icon color, mode contained-tonal', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -260,7 +250,7 @@ describe('getIconButtonColor - background color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode contained-tonal, selected', () => {
+  it('should return theme icon color, mode contained-tonal, selected', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -272,7 +262,7 @@ describe('getIconButtonColor - background color', () => {
     });
   });
 
-  it('should return theme icon color, for theme version 3, mode outlined, selected', () => {
+  it('should return theme icon color, mode outlined, selected', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -284,7 +274,7 @@ describe('getIconButtonColor - background color', () => {
     });
   });
 
-  it('should return undefined, for theme version 3, if mode not specified', () => {
+  it('should return undefined, if mode not specified', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -296,7 +286,7 @@ describe('getIconButtonColor - background color', () => {
 });
 
 describe('getIconButtonColor - border color', () => {
-  it('should return correct disabled color, for theme version 3', () => {
+  it('should return correct disabled color', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -307,7 +297,7 @@ describe('getIconButtonColor - border color', () => {
     });
   });
 
-  it('should return theme color, for theme version 3', () => {
+  it('should return theme color', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -316,20 +306,10 @@ describe('getIconButtonColor - border color', () => {
       borderColor: getTheme().colors.outline,
     });
   });
-
-  it('should return undefined, for theme version 2', () => {
-    expect(
-      getIconButtonColor({
-        theme: getTheme(false, false),
-      })
-    ).toMatchObject({
-      borderColor: undefined,
-    });
-  });
 });
 
 describe('getIconButtonColor - ripple color', () => {
-  it('should return theme color, for theme version 3', () => {
+  it('should return theme color', () => {
     expect(
       getIconButtonColor({
         theme: getTheme(),
@@ -337,19 +317,6 @@ describe('getIconButtonColor - ripple color', () => {
     ).toMatchObject({
       rippleColor: color(getTheme().colors.onSurfaceVariant)
         .alpha(0.12)
-        .rgb()
-        .string(),
-    });
-  });
-
-  it('should return theme color, for theme version 2', () => {
-    expect(
-      getIconButtonColor({
-        theme: getTheme(false, false),
-      })
-    ).toMatchObject({
-      rippleColor: color(getTheme(false, false).colors.text)
-        .alpha(0.32)
         .rgb()
         .string(),
     });
