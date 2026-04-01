@@ -7,7 +7,7 @@ import {
 } from '../../Checkbox/utils';
 
 describe('getAndroidSelectionControlColor - ripple color', () => {
-  it('should return correct disabled color, for theme version 3', () => {
+  it('should return correct disabled color', () => {
     expect(
       getAndroidSelectionControlColor({
         theme: getTheme(),
@@ -16,21 +16,6 @@ describe('getAndroidSelectionControlColor - ripple color', () => {
       })
     ).toMatchObject({
       rippleColor: color(getTheme().colors.onSurface)
-        .alpha(0.16)
-        .rgb()
-        .string(),
-    });
-  });
-
-  it('should return correct disabled color, for theme version 2', () => {
-    expect(
-      getAndroidSelectionControlColor({
-        theme: getTheme(false, false),
-        disabled: true,
-        checked: false,
-      })
-    ).toMatchObject({
-      rippleColor: color(getTheme(false, false).colors.text)
         .alpha(0.16)
         .rgb()
         .string(),
@@ -49,7 +34,7 @@ describe('getAndroidSelectionControlColor - ripple color', () => {
     });
   });
 
-  it('should return theme color, for theme version 3', () => {
+  it('should return theme color', () => {
     expect(
       getAndroidSelectionControlColor({
         theme: getTheme(),
@@ -59,24 +44,10 @@ describe('getAndroidSelectionControlColor - ripple color', () => {
       rippleColor: color(getTheme().colors.primary).fade(0.32).rgb().string(),
     });
   });
-
-  it('should return theme color, for theme version 2', () => {
-    expect(
-      getAndroidSelectionControlColor({
-        theme: getTheme(false, false),
-        checked: false,
-      })
-    ).toMatchObject({
-      rippleColor: color(getTheme(false, false).colors.accent)
-        .fade(0.32)
-        .rgb()
-        .string(),
-    });
-  });
 });
 
 describe('getAndroidSelectionControlColor - checkbox color', () => {
-  it('should return correct disabled color, for theme version 3', () => {
+  it('should return correct disabled color', () => {
     expect(
       getAndroidSelectionControlColor({
         theme: getTheme(),
@@ -85,18 +56,6 @@ describe('getAndroidSelectionControlColor - checkbox color', () => {
       })
     ).toMatchObject({
       selectionControlColor: getTheme().colors.onSurfaceDisabled,
-    });
-  });
-
-  it('should return correct disabled color, for theme version 2', () => {
-    expect(
-      getAndroidSelectionControlColor({
-        theme: getTheme(false, false),
-        disabled: true,
-        checked: false,
-      })
-    ).toMatchObject({
-      selectionControlColor: getTheme(false, false).colors.disabled,
     });
   });
 
@@ -112,7 +71,7 @@ describe('getAndroidSelectionControlColor - checkbox color', () => {
     });
   });
 
-  it('should return theme color, for theme version 3, checked', () => {
+  it('should return theme color, checked', () => {
     expect(
       getAndroidSelectionControlColor({
         theme: getTheme(),
@@ -120,17 +79,6 @@ describe('getAndroidSelectionControlColor - checkbox color', () => {
       })
     ).toMatchObject({
       selectionControlColor: getTheme().colors.primary,
-    });
-  });
-
-  it('should return theme color, for theme version 2, checked', () => {
-    expect(
-      getAndroidSelectionControlColor({
-        theme: getTheme(false, false),
-        checked: true,
-      })
-    ).toMatchObject({
-      selectionControlColor: getTheme(false, false).colors.accent,
     });
   });
 
@@ -146,7 +94,7 @@ describe('getAndroidSelectionControlColor - checkbox color', () => {
     });
   });
 
-  it('should return theme color, for theme version 3, unchecked', () => {
+  it('should return theme color, unchecked', () => {
     expect(
       getAndroidSelectionControlColor({
         theme: getTheme(),
@@ -157,37 +105,31 @@ describe('getAndroidSelectionControlColor - checkbox color', () => {
     });
   });
 
-  it('should return theme color, for theme version 2, unchecked, dark mode', () => {
+  it('should return theme color, unchecked, dark mode', () => {
     expect(
       getAndroidSelectionControlColor({
-        theme: getTheme(true, false),
+        theme: getTheme(true),
         checked: false,
       })
     ).toMatchObject({
-      selectionControlColor: color(getTheme(true, false).colors.text)
-        .alpha(0.7)
-        .rgb()
-        .string(),
+      selectionControlColor: getTheme(true).colors.onSurfaceVariant,
     });
   });
 
-  it('should return theme color, for theme version 2, unchecked, light mode', () => {
+  it('should return theme color, unchecked, light mode', () => {
     expect(
       getAndroidSelectionControlColor({
-        theme: getTheme(false, false),
+        theme: getTheme(false),
         checked: false,
       })
     ).toMatchObject({
-      selectionControlColor: color(getTheme(false, false).colors.text)
-        .alpha(0.54)
-        .rgb()
-        .string(),
+      selectionControlColor: getTheme(false).colors.onSurfaceVariant,
     });
   });
 });
 
 describe('getSelectionControlIOSColor - ripple color', () => {
-  it('should return correct disabled color, for theme version 3', () => {
+  it('should return correct disabled color', () => {
     expect(
       getSelectionControlIOSColor({
         theme: getTheme(),
@@ -195,20 +137,6 @@ describe('getSelectionControlIOSColor - ripple color', () => {
       })
     ).toMatchObject({
       rippleColor: color(getTheme().colors.onSurface)
-        .alpha(0.16)
-        .rgb()
-        .string(),
-    });
-  });
-
-  it('should return correct disabled color, for theme version 2', () => {
-    expect(
-      getSelectionControlIOSColor({
-        theme: getTheme(false, false),
-        disabled: true,
-      })
-    ).toMatchObject({
-      rippleColor: color(getTheme(false, false).colors.text)
         .alpha(0.16)
         .rgb()
         .string(),
@@ -226,7 +154,7 @@ describe('getSelectionControlIOSColor - ripple color', () => {
     });
   });
 
-  it('should return theme color, for theme version 3', () => {
+  it('should return theme color', () => {
     expect(
       getSelectionControlIOSColor({
         theme: getTheme(),
@@ -235,23 +163,10 @@ describe('getSelectionControlIOSColor - ripple color', () => {
       rippleColor: color(getTheme().colors.primary).fade(0.32).rgb().string(),
     });
   });
-
-  it('should return theme color, for theme version 2', () => {
-    expect(
-      getSelectionControlIOSColor({
-        theme: getTheme(false, false),
-      })
-    ).toMatchObject({
-      rippleColor: color(getTheme(false, false).colors.accent)
-        .fade(0.32)
-        .rgb()
-        .string(),
-    });
-  });
 });
 
 describe('getSelectionControlIOSColor - checked color', () => {
-  it('should return correct disabled color, for theme version 3', () => {
+  it('should return correct disabled color', () => {
     expect(
       getSelectionControlIOSColor({
         theme: getTheme(),
@@ -259,17 +174,6 @@ describe('getSelectionControlIOSColor - checked color', () => {
       })
     ).toMatchObject({
       checkedColor: getTheme().colors.onSurfaceDisabled,
-    });
-  });
-
-  it('should return correct disabled color, for theme version 2', () => {
-    expect(
-      getSelectionControlIOSColor({
-        theme: getTheme(false, false),
-        disabled: true,
-      })
-    ).toMatchObject({
-      checkedColor: getTheme(false, false).colors.disabled,
     });
   });
 
@@ -284,23 +188,13 @@ describe('getSelectionControlIOSColor - checked color', () => {
     });
   });
 
-  it('should return theme color, for theme version 3, checked', () => {
+  it('should return theme color, checked', () => {
     expect(
       getSelectionControlIOSColor({
         theme: getTheme(),
       })
     ).toMatchObject({
       checkedColor: getTheme().colors.primary,
-    });
-  });
-
-  it('should return theme color, for theme version 2, checked', () => {
-    expect(
-      getSelectionControlIOSColor({
-        theme: getTheme(false, false),
-      })
-    ).toMatchObject({
-      checkedColor: getTheme(false, false).colors.accent,
     });
   });
 });

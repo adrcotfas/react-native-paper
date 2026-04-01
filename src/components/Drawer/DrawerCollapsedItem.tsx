@@ -75,8 +75,6 @@ const itemSize = 56;
 const outlineHeight = 32;
 
 /**
- * Note: Available in v5.x with theme version 3
- *
  * Collapsed component used to show an action item with an icon and optionally label in a navigation drawer.
  *
  * ## Usage
@@ -111,7 +109,6 @@ const DrawerCollapsedItem = ({
   ...rest
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
-  const { isV3 } = theme;
   const { scale } = theme.animation;
 
   const [numOfLines, setNumOfLines] = React.useState(1);
@@ -125,10 +122,6 @@ const DrawerCollapsedItem = ({
       animScale.setValue(0.5);
     }
   }, [animScale, active]);
-
-  if (!isV3) {
-    return null;
-  }
 
   const handlePressOut = () => {
     Animated.timing(animScale, {
@@ -163,7 +156,7 @@ const DrawerCollapsedItem = ({
 
   const labelTextStyle = {
     color: labelColor,
-    ...(isV3 ? theme.fonts.labelMedium : {}),
+    ...theme.fonts.labelMedium,
   };
 
   const icon =

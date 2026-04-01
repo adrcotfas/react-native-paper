@@ -10,8 +10,6 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import setColor from 'color';
-
 import { useInternalTheme } from '../core/theming';
 import type { ThemeProp } from '../types';
 
@@ -63,10 +61,10 @@ const { isRTL } = I18nManager;
  * ## Usage
  * ```js
  * import * as React from 'react';
- * import { ProgressBar, MD3Colors } from 'react-native-paper';
+ * import { ProgressBar, Colors } from 'react-native-paper';
  *
  * const MyComponent = () => (
- *   <ProgressBar progress={0.5} color={MD3Colors.error50} />
+ *   <ProgressBar progress={0.5} color={Colors.error50} />
  * );
  *
  * export default MyComponent;
@@ -191,9 +189,7 @@ const ProgressBar = ({
   };
 
   const tintColor = color || theme.colors?.primary;
-  const trackTintColor = theme.isV3
-    ? theme.colors.surfaceVariant
-    : setColor(tintColor).alpha(0.38).rgb().string();
+  const trackTintColor = theme.colors.surfaceVariant;
 
   return (
     <View

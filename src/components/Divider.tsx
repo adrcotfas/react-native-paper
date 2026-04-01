@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
-import color from 'color';
-
 import { useInternalTheme } from '../core/theming';
-import { black, white } from '../styles/themes/v2/colors';
 import type { $RemoveChildren, ThemeProp } from '../types';
 
 export type Props = $RemoveChildren<typeof View> & {
@@ -14,12 +11,10 @@ export type Props = $RemoveChildren<typeof View> & {
    */
   leftInset?: boolean;
   /**
-   * @supported Available in v5.x with theme version 3
    *  Whether divider has a horizontal inset on both sides.
    */
   horizontalInset?: boolean;
   /**
-   * @supported Available in v5.x with theme version 3
    *  Whether divider should be bolded.
    */
   bold?: boolean;
@@ -60,23 +55,18 @@ const Divider = ({
   ...rest
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
-  const { dark: isDarkTheme, isV3 } = theme;
-
-  const dividerColor = isV3
-    ? theme.colors.outlineVariant
-    : color(isDarkTheme ? white : black)
-        .alpha(0.12)
-        .rgb()
-        .string();
 
   return (
     <View
       {...rest}
       style={[
-        { height: StyleSheet.hairlineWidth, backgroundColor: dividerColor },
-        leftInset && (isV3 ? styles.v3LeftInset : styles.leftInset),
-        isV3 && horizontalInset && styles.horizontalInset,
-        isV3 && bold && styles.bold,
+        {
+          height: StyleSheet.hairlineWidth,
+          backgroundColor: theme.colors.outlineVariant,
+        },
+        leftInset && styles.leftInset,
+        horizontalInset && styles.horizontalInset,
+        bold && styles.bold,
         style,
       ]}
     />
@@ -85,9 +75,6 @@ const Divider = ({
 
 const styles = StyleSheet.create({
   leftInset: {
-    marginLeft: 72,
-  },
-  v3LeftInset: {
     marginLeft: 16,
   },
   horizontalInset: {

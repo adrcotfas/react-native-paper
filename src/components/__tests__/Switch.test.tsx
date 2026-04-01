@@ -10,10 +10,10 @@ import {
   black,
   grey400,
   grey50,
+  grey700,
   grey800,
   pink500,
-  grey700,
-} from '../../styles/themes/v2/colors';
+} from '../../styles/themes/baseColors';
 import Switch from '../Switch/Switch';
 import { getSwitchColor } from '../Switch/utils';
 
@@ -53,23 +53,13 @@ describe('getSwitchColor - checked color', () => {
     });
   });
 
-  it('should return theme color, for theme version 3', () => {
+  it('should return theme color', () => {
     expect(
       getSwitchColor({
         theme: getTheme(),
       })
     ).toMatchObject({
       checkedColor: getTheme().colors.primary,
-    });
-  });
-
-  it('should return theme color, for theme version 2', () => {
-    expect(
-      getSwitchColor({
-        theme: getTheme(false, false),
-      })
-    ).toMatchObject({
-      checkedColor: getTheme(false, false).colors.accent,
     });
   });
 });
@@ -151,7 +141,7 @@ describe('getSwitchColor - thumb tint color', () => {
 });
 
 describe('getSwitchColor - on tint color', () => {
-  it('should return checked color for iOS platform, for theme version 3', () => {
+  it('should return checked color for iOS platform', () => {
     Platform.OS = 'ios';
 
     expect(
@@ -163,24 +153,12 @@ describe('getSwitchColor - on tint color', () => {
     });
   });
 
-  it('should return checked color for iOS platform, for theme version 2', () => {
-    Platform.OS = 'ios';
-
-    expect(
-      getSwitchColor({
-        theme: getTheme(false, false),
-      })
-    ).toMatchObject({
-      onTintColor: getTheme(false, false).colors.accent,
-    });
-  });
-
   it('should return custom color for iOS platform', () => {
     Platform.OS = 'ios';
 
     expect(
       getSwitchColor({
-        theme: getTheme(false, false),
+        theme: getTheme(false),
         color: 'purple',
       })
     ).toMatchObject({
@@ -188,7 +166,7 @@ describe('getSwitchColor - on tint color', () => {
     });
   });
 
-  it('should return correct disabled color, for theme version 3, dark mode', () => {
+  it('should return correct disabled color, dark mode', () => {
     Platform.OS = 'android';
 
     expect(
@@ -198,17 +176,6 @@ describe('getSwitchColor - on tint color', () => {
       })
     ).toMatchObject({
       onTintColor: color(white).alpha(0.06).rgb().string(),
-    });
-  });
-
-  it('should return correct disabled color, for theme version 2, dark mode', () => {
-    expect(
-      getSwitchColor({
-        theme: getTheme(true, false),
-        disabled: true,
-      })
-    ).toMatchObject({
-      onTintColor: color(white).alpha(0.1).rgb().string(),
     });
   });
 

@@ -95,7 +95,7 @@ exports[`render visible banner, with custom theme 1`] = `
                     "margin": 8,
                   },
                   {
-                    "color": "rgba(28, 27, 31, 1)",
+                    "color": "#00f",
                   },
                 ],
               ]
@@ -230,13 +230,9 @@ exports[`render visible banner, with custom theme 1`] = `
                           },
                           [
                             {
-                              "marginHorizontal": 16,
-                              "marginVertical": 9,
-                              "textAlign": "center",
-                            },
-                            false,
-                            {
                               "marginHorizontal": 12,
+                              "marginVertical": 10,
+                              "textAlign": "center",
                             },
                             {
                               "marginHorizontal": 8,
@@ -653,13 +649,9 @@ exports[`renders visible banner, with action buttons and with image 1`] = `
                           },
                           [
                             {
-                              "marginHorizontal": 16,
-                              "marginVertical": 9,
-                              "textAlign": "center",
-                            },
-                            false,
-                            {
                               "marginHorizontal": 12,
+                              "marginVertical": 10,
+                              "textAlign": "center",
                             },
                             {
                               "marginHorizontal": 8,
@@ -923,13 +915,9 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                           },
                           [
                             {
-                              "marginHorizontal": 16,
-                              "marginVertical": 9,
-                              "textAlign": "center",
-                            },
-                            false,
-                            {
                               "marginHorizontal": 12,
+                              "marginVertical": 10,
+                              "textAlign": "center",
                             },
                             {
                               "marginHorizontal": 8,
@@ -1073,13 +1061,9 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                           },
                           [
                             {
-                              "marginHorizontal": 16,
-                              "marginVertical": 9,
-                              "textAlign": "center",
-                            },
-                            false,
-                            {
                               "marginHorizontal": 12,
+                              "marginVertical": 10,
+                              "textAlign": "center",
                             },
                             {
                               "marginHorizontal": 8,

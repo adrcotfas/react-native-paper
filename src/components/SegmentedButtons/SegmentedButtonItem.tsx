@@ -37,12 +37,10 @@ export type Props = {
    */
   icon?: IconSource;
   /**
-   * @supported Available in v5.x with theme version 3
    * Custom color for unchecked Text and Icon.
    */
   uncheckedColor?: string;
   /**
-   * @supported Available in v5.x with theme version 3
    * Custom color for checked Text and Icon.
    */
   checkedColor?: string;
@@ -152,7 +150,7 @@ const SegmentedButtonItem = ({
     }
   }, [checked, checkScale, showSelectedCheck]);
 
-  const { roundness, isV3 } = theme;
+  const { roundness } = theme;
   const { borderColor, textColor, borderWidth, backgroundColor } =
     getSegmentedButtonColors({
       checked,
@@ -162,7 +160,7 @@ const SegmentedButtonItem = ({
       uncheckedColor,
     });
 
-  const borderRadius = (isV3 ? 5 : 1) * roundness;
+  const borderRadius = 5 * roundness;
   const segmentBorderRadius = getSegmentedButtonBorderRadius({
     theme,
     segment,
@@ -173,7 +171,7 @@ const SegmentedButtonItem = ({
   const showIcon = !icon ? false : label && checked ? !showSelectedCheck : true;
   const showCheckedIcon = checked && showSelectedCheck;
 
-  const iconSize = isV3 ? 18 : 16;
+  const iconSize = 18;
   const iconStyle = {
     marginRight: label ? 5 : showCheckedIcon ? 3 : 0,
     ...(label && {
@@ -201,12 +199,7 @@ const SegmentedButtonItem = ({
     ...segmentBorderRadius,
   };
   const labelTextStyle: TextStyle = {
-    ...(!isV3
-      ? {
-          textTransform: 'uppercase',
-          fontWeight: '500',
-        }
-      : theme.fonts.labelLarge),
+    ...theme.fonts.labelLarge,
     color: textColor,
   };
 

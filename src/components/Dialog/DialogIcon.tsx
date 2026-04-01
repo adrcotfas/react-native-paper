@@ -26,7 +26,6 @@ export type Props = {
 };
 
 /**
- * @supported Available in v5.x with theme version 3
  * A component to show an icon in a Dialog.
  *
  * ## Usage
@@ -69,10 +68,6 @@ const DialogIcon = ({
   theme: themeOverrides,
 }: Props) => {
   const theme = useInternalTheme(themeOverrides);
-
-  if (!theme.isV3) {
-    return null;
-  }
 
   //@ts-ignore
   const iconColor = color || theme.colors.secondary;

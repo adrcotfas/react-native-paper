@@ -47,104 +47,7 @@ Now, you are able to use `fontFamily` from font files.
 
 ## Configuring fonts in ThemeProvider
 
-### Material Design 2
-
-#### Using `configureFonts` helper
-
-To create a custom font, prepare a `fontConfig` object where fonts are divided by platforms. After that, you have to:
-
-* pass the `fontConfig` into `configureFonts` params object property called `config` 
-* set the params object property `isV3` to `false`. 
-
-The `fontConfig` object accepts `ios`, `android`, `macos`, `windows`, `web`, and `native`. Use these to override fonts on particular platforms.
-
-:::info
-At a minimum, you need to explicitly pass fonts for `android`, `ios`, and `web`.
-:::
-
-```js
-import * as React from 'react';
-import { configureFonts, MD2LightTheme, PaperProvider } from 'react-native-paper';
-import App from './src/App';
-
-const fontConfig = {
-  web: {
-    regular: {
-      fontFamily: 'sans-serif',
-      fontWeight: 'normal',
-    },
-    medium: {
-      fontFamily: 'sans-serif-medium',
-      fontWeight: 'normal',
-    },
-    light: {
-      fontFamily: 'sans-serif-light',
-      fontWeight: 'normal',
-    },
-    thin: {
-      fontFamily: 'sans-serif-thin',
-      fontWeight: 'normal',
-    },
-  },
-  ios: {
-    regular: {
-      fontFamily: 'sans-serif',
-      fontWeight: 'normal',
-    },
-    medium: {
-      fontFamily: 'sans-serif-medium',
-      fontWeight: 'normal',
-    },
-    light: {
-      fontFamily: 'sans-serif-light',
-      fontWeight: 'normal',
-    },
-    thin: {
-      fontFamily: 'sans-serif-thin',
-      fontWeight: 'normal',
-    },
-  },
-  android: {
-    regular: {
-      fontFamily: 'sans-serif',
-      fontWeight: 'normal',
-    },
-    medium: {
-      fontFamily: 'sans-serif-medium',
-      fontWeight: 'normal',
-    },
-    light: {
-      fontFamily: 'sans-serif-light',
-      fontWeight: 'normal',
-    },
-    thin: {
-      fontFamily: 'sans-serif-thin',
-      fontWeight: 'normal',
-    },
-  }
-};
-
-const theme = {
-  ...MD2LightTheme,
-  fonts: configureFonts({config: fontConfig, isV3: false}),
-};
-
-export default function Main() {
-  return (
-    <PaperProvider theme={theme}>
-      <App />
-    </PaperProvider>
-  );
-}
-```
-
-:::tip
-If you're using TypeScript use `as const` when defining `fontConfig`.
-:::
-
-### Material Design 3
-
-#### Variants
+### Variants
 
 In the latest version fonts in theme are structured based on the `variant` keys e.g. `displayLarge` or `bodyMedium` which are then used in `Text`'s component throughout the whole library.
 
@@ -402,13 +305,13 @@ If any component uses Paper's `Text` component, without specified <b>variant</b>
 ```
 :::
 
-#### Using `configureFonts` helper
+### Using `configureFonts` helper
 
 * If there is a need to create a custom font variant, prepare its config object including required all fonts properties. After that, defined `fontConfig` has to be passed under the <b>`variant`</b> name as `config` into the params object:
 
 ```js
 import * as React from 'react';
-import { configureFonts, MD3LightTheme, PaperProvider } from 'react-native-paper';
+import { configureFonts, LightTheme, PaperProvider } from 'react-native-paper';
 import App from './src/App';
 
 const fontConfig = {
@@ -426,7 +329,7 @@ const fontConfig = {
 };
 
 const theme = {
-  ...MD3LightTheme,
+  ...LightTheme,
   fonts: configureFonts({config: fontConfig}),
 };
 
@@ -453,7 +356,7 @@ export const Text = customText<'customVariant'>()
 
 ```js
 import * as React from 'react';
-import { configureFonts, MD3LightTheme, PaperProvider } from 'react-native-paper';
+import { configureFonts, LightTheme, PaperProvider } from 'react-native-paper';
 import App from './src/App';
 
 const fontConfig = {
@@ -465,7 +368,7 @@ const fontConfig = {
 };
 
 const theme = {
-  ...MD3LightTheme,
+  ...LightTheme,
   fonts: configureFonts({config: fontConfig}),
 };
 
@@ -482,7 +385,7 @@ export default function Main() {
 
 ```js
 import * as React from 'react';
-import { configureFonts, MD3LightTheme, PaperProvider } from 'react-native-paper';
+import { configureFonts, LightTheme, PaperProvider } from 'react-native-paper';
 import App from './src/App';
 
 const fontConfig = {
@@ -490,7 +393,7 @@ const fontConfig = {
 };
 
 const theme = {
-  ...MD3LightTheme,
+  ...LightTheme,
   fonts: configureFonts({config: fontConfig}),
 };
 

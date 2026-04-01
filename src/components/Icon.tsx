@@ -86,12 +86,12 @@ export type Props = IconProps & {
  * ## Usage
  * ```js
  * import * as React from 'react';
- * import { Icon, MD3Colors } from 'react-native-paper';
+ * import { Icon, Colors } from 'react-native-paper';
  *
  * const MyComponent = () => (
  *   <Icon
  *     source="camera"
- *     color={MD3Colors.error50}
+ *     color={Colors.error50}
  *     size={20}
  *   />
  * );
@@ -122,8 +122,7 @@ const Icon = ({
     typeof source === 'object' && source.direction && source.source
       ? source.source
       : source;
-  const iconColor =
-    color || (theme.isV3 ? theme.colors.onSurface : theme.colors.text);
+  const iconColor = color || theme.colors.onSurface;
 
   if (isImageSource(s)) {
     return (

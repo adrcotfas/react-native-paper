@@ -61,12 +61,10 @@ exports[`renders list item with custom description 1`] = `
       style={
         [
           {
-            "paddingLeft": 16,
-          },
-          {
             "flexGrow": 1,
             "flexShrink": 1,
             "justifyContent": "center",
+            "paddingLeft": 16,
           },
           undefined,
         ]
@@ -142,7 +140,7 @@ exports[`renders list item with custom description 1`] = `
                   "borderColor": "transparent",
                   "borderRadius": 8,
                   "borderStyle": "solid",
-                  "borderWidth": 1,
+                  "borderWidth": 0.5,
                   "flex": undefined,
                   "flexDirection": "column",
                   "shadowColor": "#000",
@@ -210,11 +208,14 @@ exports[`renders list item with custom description 1`] = `
                       {
                         "alignItems": "center",
                         "flexDirection": "row",
-                        "paddingLeft": 4,
+                        "paddingLeft": 0,
                         "position": "relative",
                       },
                       {
+                        "alignItems": "center",
+                        "flexDirection": "row",
                         "paddingLeft": 0,
+                        "position": "relative",
                       },
                       {
                         "paddingRight": 0,
@@ -227,11 +228,10 @@ exports[`renders list item with custom description 1`] = `
                       [
                         {
                           "alignSelf": "center",
-                          "padding": 4,
-                        },
-                        {
+                          "paddingBottom": 4,
                           "paddingLeft": 8,
                           "paddingRight": 0,
+                          "paddingTop": 4,
                         },
                         null,
                       ]
@@ -384,12 +384,10 @@ exports[`renders list item with custom title and description styles 1`] = `
       style={
         [
           {
-            "paddingLeft": 16,
-          },
-          {
             "flexGrow": 1,
             "flexShrink": 1,
             "justifyContent": "center",
+            "paddingLeft": 16,
           },
           undefined,
         ]
@@ -532,12 +530,10 @@ exports[`renders list item with left and right items 1`] = `
       style={
         [
           {
-            "paddingLeft": 16,
-          },
-          {
             "flexGrow": 1,
             "flexShrink": 1,
             "justifyContent": "center",
+            "paddingLeft": 16,
           },
           undefined,
         ]
@@ -766,12 +762,10 @@ exports[`renders list item with left item 1`] = `
       style={
         [
           {
-            "paddingLeft": 16,
-          },
-          {
             "flexGrow": 1,
             "flexShrink": 1,
             "justifyContent": "center",
+            "paddingLeft": 16,
           },
           undefined,
         ]
@@ -875,12 +869,10 @@ exports[`renders list item with right item 1`] = `
       style={
         [
           {
-            "paddingLeft": 16,
-          },
-          {
             "flexGrow": 1,
             "flexShrink": 1,
             "justifyContent": "center",
+            "paddingLeft": 16,
           },
           undefined,
         ]
@@ -987,12 +979,10 @@ exports[`renders list item with title and description 1`] = `
       style={
         [
           {
-            "paddingLeft": 16,
-          },
-          {
             "flexGrow": 1,
             "flexShrink": 1,
             "justifyContent": "center",
+            "paddingLeft": 16,
           },
           undefined,
         ]
@@ -1128,12 +1118,10 @@ exports[`renders with a description with typeof number 1`] = `
       style={
         [
           {
-            "paddingLeft": 16,
-          },
-          {
             "flexGrow": 1,
             "flexShrink": 1,
             "justifyContent": "center",
+            "paddingLeft": 16,
           },
           undefined,
         ]

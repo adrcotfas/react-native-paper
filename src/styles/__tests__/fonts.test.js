@@ -1,10 +1,3 @@
-const customFont = {
-  custom: {
-    fontFamily: 'sans-serif',
-    fontWeight: 'bold',
-  },
-};
-
 const customFontV3 = {
   displayLarge: {
     fontFamily: 'NotoSans',
@@ -139,7 +132,7 @@ const loadFonts = () => {
     configureFonts = fonts.default;
     fontConfig = fonts.fontConfig;
 
-    typescale = require('../themes/v3/tokens').typescale;
+    typescale = require('../themes/tokens').typescale;
   });
 
   return { configureFonts, fontConfig, typescale };
@@ -148,66 +141,6 @@ const loadFonts = () => {
 describe('configureFonts', () => {
   afterEach(() => {
     jest.dontMock('react-native');
-  });
-
-  it('adds custom fonts to the iOS config', () => {
-    mockPlatform('ios');
-    const { configureFonts, fontConfig } = loadFonts();
-
-    expect(
-      configureFonts({
-        config: {
-          ios: {
-            ...fontConfig.ios,
-            customFont,
-          },
-        },
-        isV3: false,
-      })
-    ).toEqual({
-      ...fontConfig.ios,
-      customFont,
-    });
-  });
-
-  it('adds custom fonts to the Android config', () => {
-    mockPlatform('android');
-    const { configureFonts, fontConfig } = loadFonts();
-
-    expect(
-      configureFonts({
-        config: {
-          android: {
-            ...fontConfig.android,
-            customFont,
-          },
-        },
-        isV3: false,
-      })
-    ).toEqual({
-      ...fontConfig.android,
-      customFont,
-    });
-  });
-
-  it('adds custom fonts to the Web config', () => {
-    mockPlatform('web');
-    const { configureFonts, fontConfig } = loadFonts();
-
-    expect(
-      configureFonts({
-        config: {
-          web: {
-            ...fontConfig.web,
-            customFont,
-          },
-        },
-        isV3: false,
-      })
-    ).toEqual({
-      ...fontConfig.web,
-      customFont,
-    });
   });
 
   it('overrides properties passed in config for all variants', () => {

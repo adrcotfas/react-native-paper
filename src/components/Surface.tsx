@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 
 import { useInternalTheme } from '../core/theming';
-import overlay, { isAnimatedValue } from '../styles/overlay';
+import { isAnimatedValue } from '../styles/overlay';
 import shadow from '../styles/shadow';
-import type { ThemeProp, MD3Elevation } from '../types';
+import type { ThemeProp, Elevation as ElevationProp } from '../types';
 import { forwardRef } from '../utils/forwardRef';
 import { splitStyles } from '../utils/splitStyles';
 
-type Elevation = 0 | 1 | 2 | 3 | 4 | 5 | Animated.Value;
+type Elevation = ElevationProp | Animated.Value;
 
 export type Props = Omit<React.ComponentPropsWithRef<typeof View>, 'style'> & {
   /**
@@ -25,18 +25,16 @@ export type Props = Omit<React.ComponentPropsWithRef<typeof View>, 'style'> & {
   children: React.ReactNode;
   style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
   /**
-   * @supported Available in v5.x with theme version 3
    * Changes shadows and background on iOS and Android.
    * Used to create UI hierarchy between components.
    *
    * Note: If `mode` is set to `flat`, Surface doesn't have a shadow.
    *
-   * Note: In version 2 the `elevation` prop was accepted via `style` prop i.e. `style={{ elevation: 4 }}`.
-   * It's no longer supported with theme version 3 and you should use `elevation` property instead.
+   * Note: In previous versions the `elevation` prop was accepted via `style` prop i.e. `style={{ elevation: 4 }}`.
+   * Use the `elevation` property instead.
    */
   elevation?: Elevation;
   /**
-   * @supported Available in v5.x with theme version 3
    * Mode of the Surface.
    * - `elevated` - Surface with a shadow and background color corresponding to set `elevation` value.
    * - `flat` - Surface without a shadow, with the background color corresponding to set `elevation` value.
@@ -56,30 +54,6 @@ export type Props = Omit<React.ComponentPropsWithRef<typeof View>, 'style'> & {
    */
   container?: boolean;
 };
-
-const MD2Surface = forwardRef<View, Props>(
-  ({ style, theme: overrideTheme, ...rest }: Omit<Props, 'elevation'>, ref) => {
-    const { elevation = 4 } = (StyleSheet.flatten(style) || {}) as ViewStyle;
-    const { dark: isDarkTheme, mode, colors } = useInternalTheme(overrideTheme);
-
-    return (
-      <Animated.View
-        ref={ref}
-        {...rest}
-        style={[
-          {
-            backgroundColor:
-              isDarkTheme && mode === 'adaptive'
-                ? overlay(elevation, colors?.surface)
-                : colors?.surface,
-          },
-          elevation ? shadow(elevation) : null,
-          style,
-        ]}
-      />
-    );
-  }
-);
 
 const outerLayerStyleProperties: (keyof ViewStyle)[] = [
   'position',
@@ -277,13 +251,6 @@ const Surface = forwardRef<View, Props>(
   ) => {
     const theme = useInternalTheme(overridenTheme);
 
-    if (!theme.isV3)
-      return (
-        <MD2Surface {...props} theme={theme} style={style} ref={ref}>
-          {children}
-        </MD2Surface>
-      );
-
     const { colors } = theme;
 
     const inputRange = [0, 1, 2, 3, 4, 5];
@@ -293,7 +260,7 @@ const Surface = forwardRef<View, Props>(
         return elevation.interpolate({
           inputRange,
           outputRange: inputRange.map((elevation) => {
-            return colors.elevation?.[`level${elevation as MD3Elevation}`];
+            return colors.elevation?.[`level${elevation as ElevationProp}`];
           }),
         });
       }
@@ -313,7 +280,7 @@ const Surface = forwardRef<View, Props>(
           testID={testID}
           style={[
             { backgroundColor },
-            elevation && isElevated ? shadow(elevation, theme.isV3) : null,
+            elevation && isElevated ? shadow(elevation) : null,
             style,
           ]}
         >

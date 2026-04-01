@@ -37,7 +37,6 @@ export type Props = {
    */
   leadingIcon?: IconSource;
   /**
-   * @supported Available in v5.x with theme version 3
    *
    * Trailing icon to display for the `MenuItem`.
    */
@@ -47,7 +46,6 @@ export type Props = {
    */
   disabled?: boolean;
   /**
-   * @supported Available in v5.x with theme version 3
    *
    * Sets min height with densed layout.
    */
@@ -156,16 +154,14 @@ const MenuItem = ({
     disabled,
     customRippleColor,
   });
-  const { isV3 } = theme;
 
-  const containerPadding = isV3 ? 12 : 8;
+  const containerPadding = 12;
 
-  const iconWidth = isV3 ? 24 : 40;
+  const iconWidth = 24;
 
-  const minWidth = MIN_WIDTH - (isV3 ? 12 : 16);
+  const minWidth = MIN_WIDTH - 12;
 
   const maxWidth = getContentMaxWidth({
-    isV3,
     iconWidth,
     leadingIcon,
     trailingIcon,
@@ -173,7 +169,7 @@ const MenuItem = ({
 
   const titleTextStyle = {
     color: titleColor,
-    ...(isV3 ? theme.fonts.bodyLarge : {}),
+    ...theme.fonts.bodyLarge,
   };
 
   const newAccessibilityState = { ...accessibilityState, disabled };
@@ -183,7 +179,7 @@ const MenuItem = ({
       style={[
         styles.container,
         { paddingHorizontal: containerPadding },
-        dense && styles.md3DenseContainer,
+        dense && styles.denseContainer,
         style,
       ]}
       onPress={onPress}
@@ -198,22 +194,15 @@ const MenuItem = ({
     >
       <View style={[styles.row, containerStyle]}>
         {leadingIcon ? (
-          <View
-            style={[!isV3 && styles.item, { width: iconWidth }]}
-            pointerEvents="box-none"
-          >
+          <View style={{ width: iconWidth }} pointerEvents="box-none">
             <Icon source={leadingIcon} size={24} color={iconColor} />
           </View>
         ) : null}
         <View
           style={[
-            !isV3 && styles.item,
             styles.content,
             { minWidth, maxWidth },
-            isV3 &&
-              (leadingIcon
-                ? styles.md3LeadingIcon
-                : styles.md3WithoutLeadingIcon),
+            leadingIcon ? styles.leadingIcon : styles.withoutLeadingIcon,
             contentStyle,
           ]}
           pointerEvents="none"
@@ -223,17 +212,14 @@ const MenuItem = ({
             selectable={false}
             numberOfLines={1}
             testID={`${testID}-title`}
-            style={[!isV3 && styles.title, titleTextStyle, titleStyle]}
+            style={[titleTextStyle, titleStyle]}
             maxFontSizeMultiplier={titleMaxFontSizeMultiplier}
           >
             {title}
           </Text>
         </View>
-        {isV3 && trailingIcon ? (
-          <View
-            style={[!isV3 && styles.item, { width: iconWidth }]}
-            pointerEvents="box-none"
-          >
+        {trailingIcon ? (
+          <View style={{ width: iconWidth }} pointerEvents="box-none">
             <Icon source={trailingIcon} size={24} color={iconColor} />
           </View>
         ) : null}
@@ -251,25 +237,19 @@ const styles = StyleSheet.create({
     height: 48,
     justifyContent: 'center',
   },
-  md3DenseContainer: {
+  denseContainer: {
     height: 32,
   },
   row: {
     flexDirection: 'row',
   },
-  title: {
-    fontSize: 16,
-  },
-  item: {
-    marginHorizontal: 8,
-  },
   content: {
     justifyContent: 'center',
   },
-  md3LeadingIcon: {
+  leadingIcon: {
     marginLeft: 12,
   },
-  md3WithoutLeadingIcon: {
+  withoutLeadingIcon: {
     marginLeft: 4,
   },
 });

@@ -4,7 +4,7 @@ import { Animated, Dimensions, StyleSheet, View } from 'react-native';
 import { act, render, screen, waitFor } from '@testing-library/react-native';
 
 import { getTheme } from '../../core/theming';
-import { MD3Elevation } from '../../types';
+import { Elevation } from '../../types';
 import Button from '../Button/Button';
 import Menu, { ELEVATION_LEVELS_MAP } from '../Menu/Menu';
 import Portal from '../Portal/Portal';
@@ -68,9 +68,9 @@ it('renders menu with content styles', () => {
   expect(tree).toMatchSnapshot();
 });
 
-([0, 1, 2, 3, 4, 5] as MD3Elevation[]).forEach((elevation) =>
+([0, 1, 2, 3, 4, 5] as Elevation[]).forEach((elevation) =>
   it(`renders menu with background color based on elevation value = ${elevation}`, () => {
-    const theme = getTheme(false, true);
+    const theme = getTheme(false);
 
     const { getByTestId } = render(
       <Portal.Host>
