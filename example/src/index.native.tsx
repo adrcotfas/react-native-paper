@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { I18nManager } from 'react-native';
 
-import { useMaterial3Theme } from '@pchmn/expo-material3-theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { InitialState, NavigationContainer } from '@react-navigation/native';
@@ -9,7 +8,13 @@ import { useFonts } from 'expo-font';
 import { useKeepAwake } from 'expo-keep-awake';
 import { StatusBar } from 'expo-status-bar';
 import * as Updates from 'expo-updates';
-import { PaperProvider, DarkTheme, LightTheme } from 'react-native-paper';
+import {
+  PaperProvider,
+  LightTheme,
+  DarkTheme,
+  DynamicLightTheme,
+  DynamicDarkTheme,
+} from 'react-native-paper';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
 import DrawerItems from './DrawerItems';
@@ -50,19 +55,13 @@ export default function PaperExample() {
   const [customFontLoaded, setCustomFont] = React.useState(false);
   const [rippleEffectEnabled, setRippleEffectEnabled] = React.useState(true);
 
-  const { theme: mdTheme } = useMaterial3Theme();
   const theme = React.useMemo(() => {
-    if (!deviceColorsSupported || !shouldUseDeviceColors) {
-      return isDarkMode ? DarkTheme : LightTheme;
+    if (deviceColorsSupported && shouldUseDeviceColors) {
+      return isDarkMode ? DynamicDarkTheme : DynamicLightTheme;
     }
 
-    return isDarkMode
-      ? { ...DarkTheme, colors: { ...DarkTheme.colors, ...mdTheme.dark } }
-      : {
-          ...LightTheme,
-          colors: { ...LightTheme.colors, ...mdTheme.light },
-        };
-  }, [isDarkMode, mdTheme, shouldUseDeviceColors]);
+    return isDarkMode ? DarkTheme : LightTheme;
+  }, [isDarkMode, shouldUseDeviceColors]);
 
   React.useEffect(() => {
     const restoreState = async () => {
