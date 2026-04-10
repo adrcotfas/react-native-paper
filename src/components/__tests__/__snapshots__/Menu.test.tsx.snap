@@ -255,7 +255,7 @@ exports[`renders menu with content styles 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgb(243, 237, 246)",
+              "backgroundColor": "rgba(247, 242, 250, 1)",
               "borderRadius": 4,
               "borderTopLeftRadius": 0,
               "borderTopRightRadius": 0,
@@ -284,7 +284,7 @@ exports[`renders menu with content styles 1`] = `
             pointerEvents="box-none"
             style={
               {
-                "backgroundColor": "rgb(243, 237, 246)",
+                "backgroundColor": "rgba(247, 242, 250, 1)",
                 "borderRadius": 4,
                 "borderTopLeftRadius": 0,
                 "borderTopRightRadius": 0,
@@ -966,7 +966,7 @@ exports[`renders visible menu 1`] = `
           collapsable={false}
           style={
             {
-              "backgroundColor": "rgb(243, 237, 246)",
+              "backgroundColor": "rgba(247, 242, 250, 1)",
               "borderRadius": 4,
               "opacity": 0,
               "shadowColor": "#000",
@@ -993,7 +993,7 @@ exports[`renders visible menu 1`] = `
             pointerEvents="box-none"
             style={
               {
-                "backgroundColor": "rgb(243, 237, 246)",
+                "backgroundColor": "rgba(247, 242, 250, 1)",
                 "borderRadius": 4,
                 "flex": undefined,
                 "paddingVertical": 8,

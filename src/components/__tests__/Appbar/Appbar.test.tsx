@@ -298,13 +298,13 @@ describe('getAppbarColors', () => {
 
   it('should return light theme color', () => {
     expect(getAppbarBackgroundColor(getTheme())).toBe(
-      tokens.md.ref.palette.neutral99
+      tokens.md.ref.palette.neutral98
     );
   });
 
   it('should return dark theme color', () => {
     expect(getAppbarBackgroundColor(getTheme(true))).toBe(
-      tokens.md.ref.palette.neutral10
+      tokens.md.ref.palette.neutral6
     );
   });
 });
